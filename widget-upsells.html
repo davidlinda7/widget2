@@ -1,1 +1,68 @@
-<!-- Upsells widget placeholder -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Upsells</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-transparent text-gray-900">
+  <main class="w-full p-4">
+    <section class="rounded-2xl border bg-white shadow p-5">
+      <div class="flex gap-2 mb-4">
+        <button class="px-3 py-2 rounded-xl text-sm bg-gray-900 text-white" data-tab="ai">⚡ AI Agent</button>
+        <button class="px-3 py-2 rounded-xl text-sm bg-gray-100 hover:bg-gray-200" data-tab="rep">⭐ Reputation</button>
+        <button class="px-3 py-2 rounded-xl text-sm bg-gray-100 hover:bg-gray-200" data-tab="soc">💬 Social</button>
+        <button class="px-3 py-2 rounded-xl text-sm bg-gray-100 hover:bg-gray-200" data-tab="ana">📊 Analytics</button>
+      </div>
+
+      <div id="p-ai">
+        <h3 class="font-semibold text-lg mb-2">AI Sales & Support Agent</h3>
+        <p class="text-gray-600 mb-4">Turn missed calls into conversations 24/7. Greet, qualify, and book customers automatically.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 bg-gray-900 text-white">Activate AI Agent</a>
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 border">View Conversation Samples</a>
+        </div>
+      </div>
+
+      <div id="p-rep" class="hidden">
+        <h3 class="font-semibold text-lg mb-2">Reputation Management</h3>
+        <p class="text-gray-600 mb-4">Automatically request reviews after every job and publish them on Google & Facebook.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 bg-gray-900 text-white">Enable Review Requests</a>
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 border">Connect Google</a>
+        </div>
+      </div>
+
+      <div id="p-soc" class="hidden">
+        <h3 class="font-semibold text-lg mb-2">Social Media Planner</h3>
+        <p class="text-gray-600 mb-4">Schedule content to Facebook, Instagram, and LinkedIn from one dashboard.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 bg-gray-900 text-white">Connect Social Accounts</a>
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 border">View Content Ideas</a>
+        </div>
+      </div>
+
+      <div id="p-ana" class="hidden">
+        <h3 class="font-semibold text-lg mb-2">Advanced Analytics</h3>
+        <p class="text-gray-600 mb-4">See how automation impacts your bottom line: call stats, response times, conversions.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 bg-gray-900 text-white">Upgrade to Pro</a>
+          <a href="#" class="inline-flex items-center rounded-xl px-4 py-2 border">See Demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll('button[data-tab]');
+    const panes = { ai: 'p-ai', rep: 'p-rep', soc: 'p-soc', ana: 'p-ana' };
+    tabs.forEach(b => b.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('bg-gray-900','text-white'));
+      b.classList.add('bg-gray-900','text-white');
+      Object.values(panes).forEach(id => document.getElementById(id).classList.add('hidden'));
+      document.getElementById(panes[b.dataset.tab]).classList.remove('hidden');
+    }));
+  </script>
+</body>
+</html>
